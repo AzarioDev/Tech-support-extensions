@@ -1,0 +1,90 @@
+{
+    "name": "Script Package",
+    "version": "0.5.19",
+    "description": "Сборник скриптов для быстрого доступа к ресурсам: ://.skyeng.ru/* , ://datsy.ru/, ://skyeng.autofaq.ai/, ://skyeng.omnidesk.ru/*",
+    "manifest_version": 2,
+    "icons": {
+		"16": "script-pack.png",
+		"48": "script-pack.png",
+		"128": "script-pack.png"
+	},
+    "options_page": "options.html",
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+      },
+    "content_scripts": [
+    {
+        "js": ["timetable.js"],
+        "matches": ["*://timetable.skyeng.ru/*"]
+    },
+    {
+        "js": ["omnideskScript/ticket_quote.js", "omnideskScript/ticket_how_old_ticket.js", "omnideskScript/ticket_how_old_reply.js", "omnideskScript/ticket_big_notes.js", "omnideskScript/ticket_input_label.js", "ticket_easy_info_window.js", "omnideskScript/ticket_reminds_of.js", "omnideskScript/ticket_who_creator.js", "omnideskScript/ticket_dark_css.js", "omnideskScript/ticket_help_notify.js", "omnideskScript/ticket_help_ids.js"],
+        "matches": ["*://help.skyeng.ru/staff/cases/record/*","*://skyeng.omnidesk.ru/staff/cases/record/*"]
+    },
+    {
+        "js": ["info_user_status.js", "info_user_button.js"],
+        "matches": ["*://id.skyeng.ru/admin/users/*"]
+    },
+    {
+        "js": ["crmScript/crm_teacher_info.js"],
+        "matches": ["*://crm.skyeng.ru/admin/orderPriority/search?*"]
+    },
+    {
+        "js": ["omnideskScript/chat_separate.js", "omnideskScript/chat_crit.js", "omnideskScript/chat_close.js", "ticket_easy_info_window.js","omnideskScript/chat_new_ticket.js", "omnideskScript/ticket_who_creator.js"],
+        "matches": ["*://skyeng.omnidesk.ru/staff/cases/chat/*", "*://help.skyeng.ru/staff/cases/chat/*"]
+    },
+    {
+        "js": ["omnideskScript/box_ticket_info.js", "omnideskScript/box_sort.js", "omnideskScript/box_show_all.js","omnideskScript/box_in_new_tab.js","omnideskScript/box_in_new_tab_checkbox.js", "omnideskScript/ticket_inside_call.js"],
+        "matches": ["*://help.skyeng.ru/staff/cases/list/*", "*://skyeng.omnidesk.ru/staff/cases/list/*"]
+    },
+    {
+        "js": ["vimboxScript/workbook.js"],
+        "matches": ["*://*.skyeng.ru/workbook/*", "*://*.skyeng.ru/room/*"]
+    },
+    {
+        "js": ["crmScript/crm_group.js"],
+        "matches": ["*://*.skyeng.ru/admin/group/edit?id=*"]
+    },
+    {
+        "js": ["omnideskScript/chat_new_ticket.js"],
+        "matches": ["*://skyeng.omnidesk.ru/l_rus/*","*://*.skyeng.ru/l_rus/*","*://omnidesk.ru/client_widgets/widget/*"]
+    },
+    {
+        "js": [
+            "ticket_easy_info_window.js", 
+            "autofaqScript/autofaq_people_list.js", 
+            "autofaqScript/autofaq_colorfull_status.js", 
+            "autofaqScript/autofaq_tkRequest_btn.js"
+        ],
+        "css": ["autofaq/patterns.css"],
+        "matches": ["*://skyeng.autofaq.ai/*"]
+    },
+    {
+        "js": ["crmScript/crm2_new_tab_search.js", "crmScript/crm2_send_letter.js", "crmScript/crm2_users_save.js"],
+        "matches": ["*://crm2.skyeng.ru/persons*"]
+    },
+    {
+        "js": ["calc_google.js"],
+        "matches": ["*://calendar.google.com/calendar/*"]
+    },
+    {
+        "js": ["vimboxScript/vimbox_remove_all_students.js"],
+        "matches": ["https://vimbox.skyeng.ru/start*"]
+    },
+    {
+        "js": ["ticket_easy_info_window.js"],
+        "matches": ["*://crm2.skyeng.ru/persons*", "*://crm2.skyeng.ru/customer-support/start"]
+    },
+    {
+        "js": ["vimboxScript/vimbox_homework.js"],
+        "matches": ["*://vimbox.skyeng.ru/student/*/homework"]
+    }],
+    "web_accessible_resources": [
+        "libs/*",
+        "autofaq/*"
+    ],
+    "permissions": [
+        "cookies", "*://*.skyeng.ru/*","*://skyeng.omnidesk.ru/*","*://datsy.ru/api/*","*://kibana-logs.skyeng.link/","storage","notifications"
+    ]
+}
